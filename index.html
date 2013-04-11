@@ -69,16 +69,30 @@
               document.write("</li>");
             }
 
+            function sort_totals(totals) {
+              // sort players (need to convert from object to array)
+              var sorted =[];
+              for(var player in totals) {
+                sorted.push([player, totals[player]]);
+              }    
+
+              return sorted.sort(function(a, b) {return b[1] - a[1]});
+            }
+
             function write_results(results) {
+              results = sort_totals(results);
               document.write("<ol>");
 
+              // handle ties  
               var rank = 0;
               for(var i=0; i<results.length; i++ ) {
                                 
                 if(i > 0 && results[i-1][1] == results[i][1]) {
-                  rank = rank;
+                  // if the player before me has the same total, my rank is the same as theirs                
+                  // rank = rank; // no-op
                 }
                 else {
+                  // otherwise, rank is equal to my place in the list
                   rank = i + 1;
                 }
                 write_place(rank, results[i]);
@@ -86,6 +100,12 @@
               document.write("</ol>");
             }
 
+            // write most recent tournament's results
+            most_recent_results = results[results.length - 1];
+            document.write("<h4>Week " + results.length + " Results</h4>");
+            write_results(most_recent_results);
+
+            // determine overall standings
             // add up all cashes for each player
             totals = {};
             for(var i=0; i<results.length; i++) {
@@ -98,33 +118,8 @@
               }
             }
 
-            // sort players (need to convert from object to array)
-            var sorted =[];
-            for(var player in totals) {
-              sorted.push([player, totals[player]]);
-            }    
-            sorted = sorted.sort(function(a, b) {return b[1] - a[1]})
-
-            if( results.length > 0 ) {
-              most_recent_results = results[results.length - 1];
-
-              var sorted_results = [];
-              for(var player in most_recent_results) {
-                if( most_recent_results.hasOwnProperty(player) ) {
-                  sorted_results.push([player, most_recent_results[player]]);
-                }
-
-                sorted_results.sort(function(a, b) {return b[1] - a[1]});
-              }
-
-              most_recent_results = sorted_results;
-
-              document.write("<h4>Week " + results.length + " Results</h4>");
-              write_results(most_recent_results);
-            }
-
             document.write("<p><strong><span style=\"color: #303030; font-size: 16px\">Standings</span></strong> <em>(top 10 make playoffs)</em></p>");
-            write_results(sorted);
+            write_results(totals);
 
           </script>
         </section>
