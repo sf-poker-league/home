@@ -73,3 +73,11 @@ function write_standings() {
 	document.write("<strong><span style=\"color: #303030; font-size: 16px\">Standings</span></strong> <em>(top 10 make playoffs)</em>");
 	write_results(totals);
 }
+
+function write_all_tournaments() {
+  for(var i=0; i<results.length; i++) {
+    document.write("<h4>Week " + (i+1) + "</h4>");
+
+    write_results(results[i]);
+  }
+}

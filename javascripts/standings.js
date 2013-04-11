@@ -1,3 +1,4 @@
+// One object per tournmanent, in chronological order
 var results = 
     [
         {"Gregarious Narain": 265, "Charlie Ansanelli": 265, "Brett Suwyn": 140, "Romy Mancini": 80, "Chris Burkhart": 30},
