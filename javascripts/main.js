@@ -21,22 +21,60 @@ var affilliations = {
   "Unni Narayanan": "Mind Pirate",
 };
 
+function write_standings() {
+  // write most recent tournament's results
+  most_recent_results = results[results.length - 1];
+  document.write("<h4>Week " + results.length + " Results</h4>");
+  write_results(most_recent_results);
+
+  // determine overall standings
+  // add up all cashes for each player
+  totals = {};
+  for(var i=0; i<results.length; i++) {
+    tournament = results[i];
+    
+    for(var player in tournament) {
+        var points = totals[player] || 0;
+        points += tournament[player];
+        totals[player] = points;
+    }
+  }
+
+  // write overall standings
+  document.write("<strong><span style=\"color: #303030; font-size: 16px\">Standings</span></strong> <em>(top 10 make playoffs)</em>");
+  write_results(totals);
+}
+
+function write_all_tournaments() {
+  for(var i=0; i<results.length; i++) {
+    document.write("<h4>Week " + (i+1) + "</h4>");
+
+    write_results(results[i]);
+  }
+}
+
 function write_results(results) {
   results = sort_results(results);
   document.write("<ol>");
 
-  var rank = 0;
+  var rank = 1;
   for(var i=0; i<results.length; i++ ) {
-                    
-    if(i > 0 && results[i-1][1] == results[i][1]) {
-      // if the player before me has the same total, my rank is the same as theirs                
-      // rank = rank; // no-op
+    current_player = results[i];
+
+    if(i > 0) {
+      last_player = results[i-1];
+
+      current_points = current_player[1];
+      last_points = last_player[1];
+
+      if(current_points != last_points) {
+        // if the player before me has the same total, my rank is the same as theirs                
+        // so don't increment
+        rank = i + 1;
+      }
     }
-    else {
-      // otherwise, rank is equal to my place in the list
-      rank = i + 1;
-    }
-    write_place(rank, results[i]);
+
+    write_place(rank, current_player);
   }
   document.write("</ol>");
 }
@@ -73,33 +111,3 @@ function sort_results(totals) {
   return sorted.sort(function(a, b) {return b[1] - a[1]});
 }
 
-function write_standings() {
-	// write most recent tournament's results
-	most_recent_results = results[results.length - 1];
-	document.write("<h4>Week " + results.length + " Results</h4>");
-	write_results(most_recent_results);
-
-	// determine overall standings
-	// add up all cashes for each player
-	totals = {};
-	for(var i=0; i<results.length; i++) {
-	  tournament = results[i];
-	  
-	  for(var player in tournament) {
-	      var points = totals[player] || 0;
-	      points += tournament[player];
-	      totals[player] = points;
-	  }
-	}
-
-	document.write("<strong><span style=\"color: #303030; font-size: 16px\">Standings</span></strong> <em>(top 10 make playoffs)</em>");
-	write_results(totals);
-}
-
-function write_all_tournaments() {
-  for(var i=0; i<results.length; i++) {
-    document.write("<h4>Week " + (i+1) + "</h4>");
-
-    write_results(results[i]);
-  }
-}
