@@ -23,50 +23,75 @@
         </header>
         <div style="text-align:center"><h1>♠♥♦♣</h1></div>
 
-        <section id="leaders" >
-          
+        <section id="leaders" >          
           <p><strong><span style="color: #303030 font-size: 16px">Standings</span></strong> <em>(top 10 make playoffs)</em></p>
-<script>
-  var results = 
-      [
-          {"Chris Burkhart (Chute)": 30, "Romy Mancini": 80, "Brett Suwyn (Chute)": 140, "Gregarious Narain (Chute)": 265, "Charlie Ansanelli (Treasure Island Flea)": 265},
-          {"Jim Greer (Kongregate)": 40, "Justin Bailey (Double Fine)": 70, "Sam Wyman (Blackboard Mobile)": 130, "Scott Waugaman (Capcom)": 190, "David Selle (Nukotoys)": 290},
-          {"Romy Mancini": 30, "Aaron Wasserman (Blackboard Mobile)": 50, "Unni Narayanan (Mind Pirate)": 90, "Sam Wyman (Blackboard Mobile)": 185, "Jim Greer (Kongregate)": 185},
-      ]
-  ;
+          <script>
+            var results = 
+                [
+                    {"Chris Burkhart": 30, "Romy Mancini": 80, "Brett Suwyn": 140, "Gregarious Narain": 265, "Charlie Ansanelli": 265},
+                    {"Jim Greer": 40, "Justin Bailey": 70, "Sam Wyman": 130, "Scott Waugaman": 190, "David Selle": 290},
+                    {"Romy Mancini": 30, "Aaron Wasserman": 50, "Unni Narayanan": 90, "Sam Wyman": 185, "Jim Greer": 185},
+                ]
+            ;
 
-  totals = {};
-  for(var i=0; i<results.length; i++) {
-    tournament = results[i];
-    
-    for(var player in tournament) {
-        var points = totals[player] || 0;
-        points += tournament[player];
-        totals[player] = points;
-    }
-  }
+            var affilliations = {
+              "Aaron Wasserman": "Blackboard Mobile",
+              "Brett Suwyn": "Chute",
+              "Charlie Ansanelli": "Treasure Island Flea",
+              "Chris Burkhart": "Chute",
+              "David Selle": "Nukotoys",
+              "Gregarious Narain": "Chute",
+              "Jim Greer": "Kongregate",
+              "Justin Bailey": "Double Fine",
+              "Sam Wyman": "Blackboard Mobile",
+              "Scott Waugaman": "Capcom",
+              "Unni Narayanan": "Mind Pirate",
+            };
 
-  var sorted =[];
-  for(var player in totals) {
-    sorted.push([player, totals[player]]);
-  }
-  
-  sorted = sorted.sort(function(a, b) {return b[1] - a[1]})
+            // add up all cashes for each player
+            totals = {};
+            for(var i=0; i<results.length; i++) {
+              tournament = results[i];
+              
+              for(var player in tournament) {
+                  var points = totals[player] || 0;
+                  points += tournament[player];
+                  totals[player] = points;
+              }
+            }
 
-  document.write("<ol>");
-  for(var i=0; i<sorted.length; i++) {
-    place = sorted[i];
-    var style = "";
-    if(i >= 10) {
-      style = " style=\"color: #aaaaaa\"";
-    }
+            // sort players (need to convert from object to array)
+            var sorted =[];
+            for(var player in totals) {
+              sorted.push([player, totals[player]]);
+            }    
+            sorted = sorted.sort(function(a, b) {return b[1] - a[1]})
 
-    document.write("<li" + style + ">");
-    document.write(place[0] + " - " + place[1] + " pts")
-    document.write("</li>");
-  }
-  document.write("</ol>")
-</script>
+            document.write("<ol>");
+            for(var i=0; i<sorted.length; i++) {
+              place = sorted[i];
+              player = place[0];
+              points = place[1];
+              affiliation = affilliations[player] || "";
+
+              var style = "";
+
+              // use lighter color for players below the cut
+              if(i >= 10) {
+                style = " style=\"color: #aaaaaa\"";
+              }
+
+              document.write("<li" + style + ">");
+              document.write(player);
+              if (affiliation) {
+                document.write(" (" + affiliation + ")");
+              }
+
+              document.write(" - " + points + " pts");
+              document.write("</li>");
+            }
+            document.write("</ol>")
+          </script>
         </section>
 
         <div style="text-align:center"><h1>♠♥♦♣</h1></div>
