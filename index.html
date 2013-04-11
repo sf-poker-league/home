@@ -24,13 +24,12 @@
         <div style="text-align:center"><h1>♠♥♦♣</h1></div>
 
         <section id="leaders" >          
-          <p><strong><span style="color: #303030; font-size: 16px">Standings</span></strong> <em>(top 10 make playoffs)</em></p>
           <script>
             var results = 
                 [
-                    {"Chris Burkhart": 30, "Romy Mancini": 80, "Brett Suwyn": 140, "Gregarious Narain": 265, "Charlie Ansanelli": 265},
-                    {"Jim Greer": 40, "Justin Bailey": 70, "Sam Wyman": 130, "Scott Waugaman": 190, "David Selle": 290},
-                    {"Romy Mancini": 30, "Aaron Wasserman": 50, "Unni Narayanan": 90, "Sam Wyman": 185, "Jim Greer": 185},
+                    {"Gregarious Narain": 265, "Charlie Ansanelli": 265, "Brett Suwyn": 140, "Romy Mancini": 80, "Chris Burkhart": 30},
+                    {"David Selle": 290, "Scott Waugaman": 190, "Sam Wyman": 130, "Justin Bailey": 70, "Jim Greer": 40 },
+                    {"Jim Greer": 185, "Sam Wyman": 185, "Unni Narayanan": 90, "Aaron Wasserman": 50,  "Romy Mancini": 30 },
                 ]
             ;
 
@@ -47,6 +46,45 @@
               "Scott Waugaman": "Capcom",
               "Unni Narayanan": "Mind Pirate",
             };
+
+            function write_place(rank, place) {
+              player = place[0];
+              points = place[1];
+              affiliation = affilliations[player];
+
+              var style = "";
+
+              // use lighter color for players below the cut
+              if(rank > 10) {
+                style = " style=\"color: #aaaaaa\"";
+              }
+
+              document.write("<li" + style + " value=" + rank + ">");
+              document.write(player);
+              if (affiliation) {
+                document.write(" (" + affiliation + ")");
+              }
+
+              document.write(" - " + points + " pts");
+              document.write("</li>");
+            }
+
+            function write_results(results) {
+              document.write("<ol>");
+
+              var rank = 0;
+              for(var i=0; i<results.length; i++ ) {
+                                
+                if(i > 0 && results[i-1][1] == results[i][1]) {
+                  rank = rank;
+                }
+                else {
+                  rank = i + 1;
+                }
+                write_place(rank, results[i]);
+              }
+              document.write("</ol>");
+            }
 
             // add up all cashes for each player
             totals = {};
@@ -67,30 +105,27 @@
             }    
             sorted = sorted.sort(function(a, b) {return b[1] - a[1]})
 
-            document.write("<ol>");
-            for(var i=0; i<sorted.length; i++) {
-              place = sorted[i];
-              player = place[0];
-              points = place[1];
-              affiliation = affilliations[player];
+            if( results.length > 0 ) {
+              most_recent_results = results[results.length - 1];
 
-              var style = "";
+              var sorted_results = [];
+              for(var player in most_recent_results) {
+                if( most_recent_results.hasOwnProperty(player) ) {
+                  sorted_results.push([player, most_recent_results[player]]);
+                }
 
-              // use lighter color for players below the cut
-              if(i >= 10) {
-                style = " style=\"color: #aaaaaa\"";
+                sorted_results.sort(function(a, b) {return b[1] - a[1]});
               }
 
-              document.write("<li" + style + ">");
-              document.write(player);
-              if (affiliation) {
-                document.write(" (" + affiliation + ")");
-              }
+              most_recent_results = sorted_results;
 
-              document.write(" - " + points + " pts");
-              document.write("</li>");
+              document.write("<h4>Week " + results.length + " Results</h4>");
+              write_results(most_recent_results);
             }
-            document.write("</ol>")
+
+            document.write("<p><strong><span style=\"color: #303030; font-size: 16px\">Standings</span></strong> <em>(top 10 make playoffs)</em></p>");
+            write_results(sorted);
+
           </script>
         </section>
 
