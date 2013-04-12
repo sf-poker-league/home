@@ -23,13 +23,13 @@ var affilliations = {
 
 function write_standings() {
   // write most recent tournament's results
-  most_recent_results = results[results.length - 1];
+  var most_recent_results = results[results.length - 1];
   document.write("<h4>Week " + results.length + " Results</h4>");
   write_results(most_recent_results);
 
   // determine overall standings
   // add up all cashes for each player
-  totals = {};
+  var totals = {};
   for(var i=0; i<results.length; i++) {
     tournament = results[i];
     
@@ -59,13 +59,13 @@ function write_results(results) {
 
   var rank = 1;
   for(var i=0; i<results.length; i++ ) {
-    current_player = results[i];
+    var current_player = results[i];
 
     if(i > 0) {
-      last_player = results[i-1];
+      var last_player = results[i-1];
 
-      current_points = current_player[1];
-      last_points = last_player[1];
+      var current_points = current_player[1];
+      var last_points = last_player[1];
 
       if(current_points != last_points) {
         // if the player before me has the same total, my rank is the same as theirs                
@@ -80,10 +80,9 @@ function write_results(results) {
 }
 
 function write_place(rank, place) {
-  player = place[0];
-  points = place[1];
-  affiliation = affilliations[player];
-
+  var player = place[0];
+  var points = place[1];
+  
   var style = "";
 
   // use lighter color for players below the cut
@@ -93,6 +92,8 @@ function write_place(rank, place) {
 
   document.write("<li" + style + " value=" + rank + ">");
   document.write(player);
+
+  var affiliation = affilliations[player];
   if (affiliation) {
     document.write(" (" + affiliation + ")");
   }
