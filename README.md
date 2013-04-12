@@ -1,3 +1,3 @@
-sf-poker-league
+A site for my poker league  - just a static Github Pages site with leaderboards generated in javascript.
 
-Source for http://sfpokerleague.org
+http://sfpokerleague.org
