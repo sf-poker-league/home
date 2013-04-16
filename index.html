@@ -27,7 +27,16 @@
           <script src="javascripts/main.js">
           </script>
 
-          <script>write_standings()</script>
+          <script>
+            // write most recent tournament's results
+            var most_recent_results = results[results.length - 1];
+            var week_number = results.length;
+
+            write_tournament(most_recent_results, week_number)
+
+            // write overall standings
+            write_standings()
+          </script>
           <a href="all.html">See All Results</a>
         </section>
 

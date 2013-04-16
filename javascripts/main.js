@@ -23,12 +23,18 @@ var affilliations = {
   "Unni Narayanan": "Mind Pirate",
 };
 
-function write_standings() {
-  // write most recent tournament's results
-  var most_recent_results = results[results.length - 1];
-  document.write("<h4>Week " + results.length + " Results</h4>");
-  write_results(most_recent_results);
+function write_tournament(results, week_number) {
+  document.write("<h4>Week " + week_number + " Results</h4>");
+  write_results(results);
+}
 
+function write_all_tournaments() {
+  for(var i=0; i<results.length; i++) {
+    write_tournament(results[i], i+1)
+  }
+}
+
+function write_standings() {
   // determine overall standings
   // add up all cashes for each player
   var totals = {};
@@ -42,17 +48,8 @@ function write_standings() {
     }
   }
 
-  // write overall standings
   document.write("<strong><span style=\"color: #303030; font-size: 16px\">Standings</span></strong> <em>(top 10 make playoffs)</em>");
   write_results(totals);
-}
-
-function write_all_tournaments() {
-  for(var i=0; i<results.length; i++) {
-    document.write("<h4>Week " + (i+1) + "</h4>");
-
-    write_results(results[i]);
-  }
 }
 
 function write_results(results) {
