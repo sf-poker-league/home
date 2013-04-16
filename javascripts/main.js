@@ -111,3 +111,21 @@ function sort_results(totals) {
   return sorted.sort(function(a, b) {return b[1] - a[1]});
 }
 
+function numberWithCommas(n) {
+    var parts=n.toString().split(".");
+    return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : "");
+}
+
+function write_total_points() {
+  total = 0;
+
+  for(var i=0; i<results.length; i++) {
+    tournament = results[i];
+
+    for(var player in tournament) {
+      total += tournament[player];
+    }
+  }
+
+  document.write(numberWithCommas(total));
+}
