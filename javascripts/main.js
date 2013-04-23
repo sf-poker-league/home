@@ -5,6 +5,7 @@ var results =
         {"David Selle": 290, "Scott Waugaman": 190, "Sam Wyman": 130, "Justin Bailey": 70, "Jim Greer": 40 },
         {"Jim Greer": 185, "Sam Wyman": 185, "Unni Narayanan": 90, "Aaron Wasserman": 50,  "Romy Mancini": 30 },
         {"Jim Greer": 210, "Tim Conkling": 140, "Brett Suwyn": 90, "Bill Sandberg":50, "Justin Bailey":30},
+        {"Ernie Hernandez": 130, "Alex St John": 90, "David Selle": 50, "Bill Sandberg": 30, }
     ]
 ;
 
@@ -15,6 +16,7 @@ var affilliations = {
   "Charlie Ansanelli": "Treasure Island Flea",
   "Chris Burkhart": "Chute",
   "David Selle": "Nukotoys",
+  "Ernie Hernandez": "Chute",
   "Gregarious Narain": "Chute",
   "Jim Greer": "Kongregate",
   "Justin Bailey": "Double Fine",
