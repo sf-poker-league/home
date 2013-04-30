@@ -5,7 +5,9 @@ var results =
         {"David Selle": 290, "Scott Waugaman": 190, "Sam Wyman": 130, "Justin Bailey": 70, "Jim Greer": 40 },
         {"Jim Greer": 185, "Sam Wyman": 185, "Unni Narayanan": 90, "Aaron Wasserman": 50,  "Romy Mancini": 30 },
         {"Jim Greer": 210, "Tim Conkling": 140, "Brett Suwyn": 90, "Bill Sandberg":50, "Justin Bailey":30},
-        {"Ernie Hernandez": 130, "Alex St John": 90, "David Selle": 50, "Bill Sandberg": 30, }
+        {"Ernie Hernandez": 130, "Alex St John": 90, "David Selle": 50, "Bill Sandberg": 30, },
+        {"Matthieu Laporte": 30, "Charlie Ansanelli": 60, "Ian Chan": 110, "Bill Sandberg": 160, "Brett Suwyn": 230},
+
     ]
 ;
 
@@ -23,6 +25,8 @@ var affilliations = {
   "Sam Wyman": "Blackboard Mobile",
   "Scott Waugaman": "Capcom",
   "Unni Narayanan": "Mind Pirate",
+  "Matthieu Laporte": "Twitter",
+  "Ian Chan": "Twitter",
 };
 
 function write_tournament(results, week_number) {
