@@ -7,6 +7,7 @@ var results =
         {"Jim Greer": 210, "Tim Conkling": 140, "Brett Suwyn": 90, "Bill Sandberg":50, "Justin Bailey":30},
         {"Ernie Hernandez": 130, "Alex St John": 90, "David Selle": 50, "Bill Sandberg": 30, },
         {"Matthieu Laporte": 30, "Charlie Ansanelli": 60, "Ian Chan": 110, "Bill Sandberg": 160, "Brett Suwyn": 230},
+        {"Bill Sandberg": 30, "Aaron Wasserman": 60, "Jean Teather": 90, "Romy Mancini": 120, "Jim Greer": 200}
 
     ]
 ;
@@ -27,6 +28,7 @@ var affilliations = {
   "Unni Narayanan": "Mind Pirate",
   "Matthieu Laporte": "Twitter",
   "Ian Chan": "Twitter",
+  "Jean Teather": "Meez"
 };
 
 function write_tournament(results, week_number) {
