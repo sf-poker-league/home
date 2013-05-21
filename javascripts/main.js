@@ -9,6 +9,7 @@ var results =
         {"Matthieu Laporte": 30, "Charlie Ansanelli": 60, "Ian Chan": 110, "Bill Sandberg": 160, "Brett Suwyn": 230},
         {"Bill Sandberg": 30, "Aaron Wasserman": 60, "Jean Teather": 90, "Romy Mancini": 120, "Jim Greer": 200},
         {"Sam Wyman": 175, "Gregarious Narain": 175, "Aaron Wasserman": 100, "Jean Teather": 60, "Brett Suwyn": 30},
+        {"Jean Teather": 40, "Romy Mancini": 60, "David Selle": 90, "Aaron Wasserman": 130}
     ]
 ;
 
