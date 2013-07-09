@@ -1,15 +1,18 @@
 // One object per tournmanent, in chronological order
+    // [
+    //     {"Gregarious Narain": 265, "Charlie Ansanelli": 265, "Brett Suwyn": 140, "Romy Mancini": 80, "Chris Burkhart": 30},
+    //     {"David Selle": 290, "Scott Waugaman": 190, "Sam Wyman": 130, "Justin Bailey": 70, "Jim Greer": 40 },
+    //     {"Jim Greer": 185, "Sam Wyman": 185, "Unni Narayanan": 90, "Aaron Wasserman": 50,  "Romy Mancini": 30 },
+    //     {"Jim Greer": 210, "Tim Conkling": 140, "Brett Suwyn": 90, "Bill Sandberg":50, "Justin Bailey":30},
+    //     {"Ernie Hernandez": 130, "Alex St John": 90, "David Selle": 50, "Bill Sandberg": 30, },
+    //     {"Matthieu Laporte": 30, "Charlie Ansanelli": 60, "Ian Chan": 110, "Bill Sandberg": 160, "Brett Suwyn": 230},
+    //     {"Bill Sandberg": 30, "Aaron Wasserman": 60, "Jean Teather": 90, "Romy Mancini": 120, "Jim Greer": 200},
+    //     {"Sam Wyman": 175, "Gregarious Narain": 175, "Aaron Wasserman": 100, "Jean Teather": 60, "Brett Suwyn": 30},
+    //     {"Jean Teather": 40, "Romy Mancini": 60, "David Selle": 90, "Aaron Wasserman": 130}
+    // ]
 var results = 
     [
-        {"Gregarious Narain": 265, "Charlie Ansanelli": 265, "Brett Suwyn": 140, "Romy Mancini": 80, "Chris Burkhart": 30},
-        {"David Selle": 290, "Scott Waugaman": 190, "Sam Wyman": 130, "Justin Bailey": 70, "Jim Greer": 40 },
-        {"Jim Greer": 185, "Sam Wyman": 185, "Unni Narayanan": 90, "Aaron Wasserman": 50,  "Romy Mancini": 30 },
-        {"Jim Greer": 210, "Tim Conkling": 140, "Brett Suwyn": 90, "Bill Sandberg":50, "Justin Bailey":30},
-        {"Ernie Hernandez": 130, "Alex St John": 90, "David Selle": 50, "Bill Sandberg": 30, },
-        {"Matthieu Laporte": 30, "Charlie Ansanelli": 60, "Ian Chan": 110, "Bill Sandberg": 160, "Brett Suwyn": 230},
-        {"Bill Sandberg": 30, "Aaron Wasserman": 60, "Jean Teather": 90, "Romy Mancini": 120, "Jim Greer": 200},
-        {"Sam Wyman": 175, "Gregarious Narain": 175, "Aaron Wasserman": 100, "Jean Teather": 60, "Brett Suwyn": 30},
-        {"Jean Teather": 40, "Romy Mancini": 60, "David Selle": 90, "Aaron Wasserman": 130}
+      {"Dana Wagner": 220, "Jim Meenan": 150, "Jeff Gurian": 100, "Jim Greer": 60, "Tyler Breisch": 30},
     ]
 ;
 
@@ -19,17 +22,21 @@ var affilliations = {
   "Brett Suwyn": "Chute",
   "Charlie Ansanelli": "Treasure Island Flea",
   "Chris Burkhart": "Chute",
+  "Dana Wagner": "Square",
   "David Selle": "Nukotoys",
   "Ernie Hernandez": "Chute",
   "Gregarious Narain": "Chute",
+  "Ian Chan": "Twitter",
+  "Jean Teather": "Meez",
+  "Jeff Gurian": "Kongregate",
   "Jim Greer": "Kongregate",
+  "Jim Meenan": "Kongregate",
   "Justin Bailey": "Double Fine",
+  "Matthieu Laporte": "Twitter",
   "Sam Wyman": "Blackboard Mobile",
   "Scott Waugaman": "Capcom",
+  "Tyler Breisch": "YouTube",
   "Unni Narayanan": "Mind Pirate",
-  "Matthieu Laporte": "Twitter",
-  "Ian Chan": "Twitter",
-  "Jean Teather": "Meez"
 };
 
 function write_tournament(results, week_number) {
