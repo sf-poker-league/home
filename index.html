@@ -29,22 +29,20 @@
 
 
           <script>
+            var season = get_current_season();
+            
             // write most recent tournament's results
-            var most_recent_results = results[results.length - 1];
-            var week_number = results.length;
+            var tournament_number = season.length;
+            var most_recent_results = season[tournament_number - 1];
 
-            write_tournament(most_recent_results, week_number)
+            write_tournament(most_recent_results, tournament_number)
 
             // write overall standings
-            // write_standings()
+            if (tournament_number > 1) {
+              write_standings(season);
+            }
           </script>
-          <!-- <p>Prize fund is currently at $<script>write_total_points()</script>.</p> -->
-            <strong><span style="color: #303030; font-size: 16px">Season One Champs</span></strong> <em></em>
-            <ol>
-              <li>Charlie Ansanelli (Treasure Island Flea)</li>
-              <li>Gregarious Narain (Chute)</li>
-              <li>David Selle (Nukotoys)</li>
-            </ol>
+          <p>Prize fund is currently at $<script>write_total_points()</script>.</p>
           <a href="all.html">See All Results</a>
         </section>
 
@@ -54,7 +52,7 @@
           <p>A poker league for game developers and techies in San Francisco (inspired by the Silicon Valley Poker League). Members only - if you'd like to come, <a href="https://groups.google.com/forum/#!forum/sf-poker-league">request to join our Google group</a> and tell us about yourself. Each member is allowed to bring one guest, if the member is present.</p>
 
           <ul>
-            <li>Tournaments occur every other Monday - season two starts July 8th</li>
+            <li>Tournaments occur every other Monday</li>
             <li>Food and drinks at 6:30pm </li>
             <li>Cards in the air at 7pm</li>
             <li>Finish game by 11pm sharp</li>

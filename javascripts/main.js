@@ -1,20 +1,37 @@
-// One object per tournmanent, in chronological order
-    // [
-    //     {"Gregarious Narain": 265, "Charlie Ansanelli": 265, "Brett Suwyn": 140, "Romy Mancini": 80, "Chris Burkhart": 30},
-    //     {"David Selle": 290, "Scott Waugaman": 190, "Sam Wyman": 130, "Justin Bailey": 70, "Jim Greer": 40 },
-    //     {"Jim Greer": 185, "Sam Wyman": 185, "Unni Narayanan": 90, "Aaron Wasserman": 50,  "Romy Mancini": 30 },
-    //     {"Jim Greer": 210, "Tim Conkling": 140, "Brett Suwyn": 90, "Bill Sandberg":50, "Justin Bailey":30},
-    //     {"Ernie Hernandez": 130, "Alex St John": 90, "David Selle": 50, "Bill Sandberg": 30, },
-    //     {"Matthieu Laporte": 30, "Charlie Ansanelli": 60, "Ian Chan": 110, "Bill Sandberg": 160, "Brett Suwyn": 230},
-    //     {"Bill Sandberg": 30, "Aaron Wasserman": 60, "Jean Teather": 90, "Romy Mancini": 120, "Jim Greer": 200},
-    //     {"Sam Wyman": 175, "Gregarious Narain": 175, "Aaron Wasserman": 100, "Jean Teather": 60, "Brett Suwyn": 30},
-    //     {"Jean Teather": 40, "Romy Mancini": 60, "David Selle": 90, "Aaron Wasserman": 130}
-    // ]
-var results = 
+// An array of seasons
+// Each season is array of tournament objects, in chronological order
+var seasons = 
+  [
+    [
+      {"Gregarious Narain": 265, "Charlie Ansanelli": 265, "Brett Suwyn": 140, "Romy Mancini": 80, "Chris Burkhart": 30},
+      {"David Selle": 290, "Scott Waugaman": 190, "Sam Wyman": 130, "Justin Bailey": 70, "Jim Greer": 40 },
+      {"Jim Greer": 185, "Sam Wyman": 185, "Unni Narayanan": 90, "Aaron Wasserman": 50,  "Romy Mancini": 30 },
+      {"Jim Greer": 210, "Tim Conkling": 140, "Brett Suwyn": 90, "Bill Sandberg":50, "Justin Bailey":30},
+      {"Ernie Hernandez": 130, "Alex St John": 90, "David Selle": 50, "Bill Sandberg": 30, },
+      {"Matthieu Laporte": 30, "Charlie Ansanelli": 60, "Ian Chan": 110, "Bill Sandberg": 160, "Brett Suwyn": 230},
+      {"Bill Sandberg": 30, "Aaron Wasserman": 60, "Jean Teather": 90, "Romy Mancini": 120, "Jim Greer": 200},
+      {"Sam Wyman": 175, "Gregarious Narain": 175, "Aaron Wasserman": 100, "Jean Teather": 60, "Brett Suwyn": 30},
+      {"Jean Teather": 40, "Romy Mancini": 60, "David Selle": 90, "Aaron Wasserman": 130}
+    ],
     [
       {"Dana Wagner": 220, "Jim Meenan": 150, "Jeff Gurian": 100, "Jim Greer": 60, "Tyler Breisch": 30},
     ]
+  ]
 ;
+
+
+// champions for each season, in chronological order
+// null if the season is still in progress
+var champions = 
+  [
+    ["Charlie Ansanelli", "Gregarious Narain", "David Selle"],
+    null
+  ]
+;
+
+function get_current_season() {
+  return seasons[seasons.length - 1];
+}
 
 var affilliations = {
   "Aaron Wasserman": "Blackboard Mobile",
@@ -39,23 +56,59 @@ var affilliations = {
   "Unni Narayanan": "Mind Pirate",
 };
 
-function write_tournament(results, week_number) {
-  document.write("<h4>Week " + week_number + " Results</h4>");
+function write_tournament(results, tournament_number) {
+  document.write("<h4>Tournament " + tournament_number + " Results</h4>");
   write_results(results);
 }
 
-function write_all_tournaments() {
-  for(var i=0; i<results.length; i++) {
-    write_tournament(results[i], i+1)
+function write_divider() {
+  document.write("<div style=\"text-align:center\"><h1>♠♥♦♣</h1></div>");
+}
+
+function write_all_seasons() {
+  for(var j=seasons.length - 1; j>=0; j--) {
+    var season = seasons[j];
+    var season_number = j+1;
+    document.write("<h3>Season " + season_number + "</h3>");
+
+    var season_champions = champions[j];
+    if (season_champions != null) {
+      write_champions(season_champions);
+    }
+    write_standings(season);
+
+    for(var i=season.length - 1; i>=0; i--) {
+      var tournament_number = i+1;
+      write_tournament(season[i], tournament_number, season_number);
+    }
+
+    write_divider();
   }
 }
 
-function write_standings() {
+function write_champions(champions) {
+  document.write("<h4>Season Champions</h4>");
+  document.write("<ol>");
+
+  for(var i=0; i<champions.length; i++) {
+    document.write("<li>");
+    write_player(champions[i]);
+    document.write("</li>");
+  }
+  document.write("</ol>");
+}
+
+function write_standings(season) {
+  if (typeof(season)===undefined) {
+    season = get_current_season();
+  }
+
   // determine overall standings
   // add up all cashes for each player
   var totals = {};
-  for(var i=0; i<results.length; i++) {
-    tournament = results[i];
+
+  for(var i=0; i<season.length; i++) {
+    tournament = season[i];
     
     for(var player in tournament) {
         var points = totals[player] || 0;
@@ -64,7 +117,7 @@ function write_standings() {
     }
   }
 
-  document.write("<strong><span style=\"color: #303030; font-size: 16px\">Standings</span></strong> <em>(top 10 make playoffs)</em>");
+  document.write("<strong><span style=\"color: #303030; font-size: 16px\">Standings</span></strong>");
   write_results(totals);
 }
 
@@ -94,6 +147,15 @@ function write_results(results) {
   document.write("</ol>");
 }
 
+function write_player(player) {
+  document.write(player);
+
+  var affiliation = affilliations[player];
+  if (affiliation) {
+    document.write(" (" + affiliation + ")");
+  }
+}
+
 function write_place(rank, place) {
   var player = place[0];
   var points = place[1];
@@ -106,12 +168,7 @@ function write_place(rank, place) {
   }
 
   document.write("<li" + style + " value=" + rank + ">");
-  document.write(player);
-
-  var affiliation = affilliations[player];
-  if (affiliation) {
-    document.write(" (" + affiliation + ")");
-  }
+  write_player(player);
 
   document.write(" - " + points + " pts");
   document.write("</li>");
@@ -133,10 +190,11 @@ function numberWithCommas(n) {
 }
 
 function write_total_points() {
-  total = 0;
+  var season = get_current_season();
+  var total = 0;
 
-  for(var i=0; i<results.length; i++) {
-    tournament = results[i];
+  for(var i=0; i<season.length; i++) {
+    var tournament = season[i];
 
     for(var player in tournament) {
       total += tournament[player];
