@@ -47,7 +47,7 @@ var affilliations = {
   "Ernie Hernandez": "Chute",
   "Gregarious Narain": "Chute",
   "Ian Chan": "Twitter",
-  "Jason Pump": "Data Alchemy",
+  "Jason Pump": "Loggly",
   "Jean Teather": "Meez",
   "Jeff Gurian": "Kongregate",
   "Jim Greer": "Kongregate",
