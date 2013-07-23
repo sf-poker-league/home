@@ -15,6 +15,7 @@ var seasons =
     ],
     [
       {"Dana Wagner": 220, "Jim Meenan": 150, "Jeff Gurian": 100, "Jim Greer": 60, "Tyler Breisch": 30},
+      {"Sam Wyman": 350, "Unni Narayanan": 230, "Dave Bogaty": 150, "Jason Pump": 90,  "Pablo Jablonski": 50, "Calvin Chan": 30}
     ]
   ]
 ;
@@ -37,19 +38,23 @@ var affilliations = {
   "Aaron Wasserman": "Blackboard Mobile",
   "Bill Sandberg": "Zedo",
   "Brett Suwyn": "Chute",
+  "Calvin Chan": "Making Fun",
   "Charlie Ansanelli": "Treasure Island Flea",
   "Chris Burkhart": "Chute",
   "Dana Wagner": "Square",
+  "Dave Bogaty": "Periscope", 
   "David Selle": "Nukotoys",
   "Ernie Hernandez": "Chute",
   "Gregarious Narain": "Chute",
   "Ian Chan": "Twitter",
+  "Jason Pump": "Data Alchemy",
   "Jean Teather": "Meez",
   "Jeff Gurian": "Kongregate",
   "Jim Greer": "Kongregate",
   "Jim Meenan": "Kongregate",
   "Justin Bailey": "Double Fine",
   "Matthieu Laporte": "Twitter",
+  "Pablo Jablonski": "Blackboard Mobile", 
   "Sam Wyman": "Blackboard Mobile",
   "Scott Waugaman": "Capcom",
   "Tyler Breisch": "YouTube",
