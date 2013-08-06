@@ -15,7 +15,8 @@ var seasons =
     ],
     [
       {"Dana Wagner": 220, "Jim Meenan": 150, "Jeff Gurian": 100, "Jim Greer": 60, "Tyler Breisch": 30},
-      {"Sam Wyman": 350, "Unni Narayanan": 230, "Dave Bogaty": 150, "Jason Pump": 90,  "Pablo Jablonski": 50, "Calvin Chan": 30}
+      {"Sam Wyman": 350, "Unni Narayanan": 230, "Dave Bogaty": 150, "Jason Pump": 90,  "Pablo Jablonski": 50, "Calvin Chan": 30},
+      {"Bill Sandberg": 480, "Jim Greer": 320, "Unni Narayanan": 220, "Pablo Jablonski": 120, "Calvin Chan": 30},
     ]
   ]
 ;
