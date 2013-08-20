@@ -17,6 +17,7 @@ var seasons =
       {"Dana Wagner": 220, "Jim Meenan": 150, "Jeff Gurian": 100, "Jim Greer": 60, "Tyler Breisch": 30},
       {"Sam Wyman": 350, "Unni Narayanan": 230, "Dave Bogaty": 150, "Jason Pump": 90,  "Pablo Jablonski": 50, "Calvin Chan": 30},
       {"Bill Sandberg": 240, "Jim Greer": 160, "Unni Narayanan": 110, "Pablo Jablonski": 60, "Calvin Chan": 30},
+      {"Sam Wyman": 190, "Justin Bailey": 130, "Jinfull Jeng": 90, "Jim Greer": 50, "Romy Mancini": 30}, 
 
     ]
   ]
@@ -54,6 +55,7 @@ var affilliations = {
   "Jeff Gurian": "Kongregate",
   "Jim Greer": "Kongregate",
   "Jim Meenan": "Kongregate",
+  "Jinfull Jeng": "Blackboard Mobile",
   "Justin Bailey": "Double Fine",
   "Matthieu Laporte": "Twitter",
   "Pablo Jablonski": "Blackboard Mobile", 
