@@ -139,6 +139,7 @@ function write_results(results) {
   for(var i=0; i<results.length; i++ ) {
     var current_player = results[i];
 
+    // check for ties
     if(i > 0) {
       var last_player = results[i-1];
 
