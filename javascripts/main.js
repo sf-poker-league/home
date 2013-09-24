@@ -19,7 +19,7 @@ var seasons =
       {"Bill Sandberg": 240, "Jim Greer": 160, "Unni Narayanan": 110, "Pablo Jablonski": 60, "Calvin Chan": 30},
       {"Sam Wyman": 190, "Justin Bailey": 130, "Jinfull Jeng": 90, "Jim Greer": 50, "Romy Mancini": 30}, 
       {"Dave Bogaty": 160, "Tim Conkling": 100, "Jim Greer": 60},
-
+      {"Dave Bogaty": 190, "Curt Geen": 120, "Jean Teather": 90, "Paul Preece": 50, "Stephen Chyau": 30},
     ]
   ]
 ;
@@ -45,6 +45,7 @@ var affilliations = {
   "Calvin Chan": "Making Fun",
   "Charlie Ansanelli": "Treasure Island Flea",
   "Chris Burkhart": "Chute",
+  "Curt Geen": "Kongregate",
   "Dana Wagner": "Square",
   "Dave Bogaty": "Periscope", 
   "David Selle": "Nukotoys",
@@ -60,8 +61,10 @@ var affilliations = {
   "Justin Bailey": "Double Fine",
   "Matthieu Laporte": "Twitter",
   "Pablo Jablonski": "Blackboard Mobile", 
+  "Paul Preece": "Kixeye",
   "Sam Wyman": "Blackboard Mobile",
   "Scott Waugaman": "Capcom",
+  "Stephen Chyau": "Blackboard Mobile",
   "Tyler Breisch": "YouTube",
   "Unni Narayanan": "Mind Pirate",
 };
