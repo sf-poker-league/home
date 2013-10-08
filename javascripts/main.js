@@ -20,7 +20,7 @@ var seasons =
       {"Sam Wyman": 190, "Justin Bailey": 130, "Jinfull Jeng": 90, "Jim Greer": 50, "Romy Mancini": 30}, 
       {"Dave Bogaty": 160, "Tim Conkling": 100, "Jim Greer": 60},
       {"Dave Bogaty": 190, "Curt Geen": 120, "Jean Teather": 90, "Paul Preece": 50, "Stephen Chyau": 30},
-      {"Jim Greer": 30, "Pablo Jablonski": 50, "Dave Bogaty": 90, "David Selle": 160, "Guy Argo": 230},
+      {"Guy Argo": 230, "David Selle": 160, "Dave Bogaty": 90, "Pablo Jablonski": 50, "Jim Greer": 30},
     ]
   ]
 ;
