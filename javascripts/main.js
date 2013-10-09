@@ -176,14 +176,14 @@ function write_place(rank, place) {
   var player = place[0];
   var points = place[1];
   
-  var style = "";
+  var belowcut = "";
 
   // use lighter color for players below the cut
   if(rank > 10) {
-    style = " style=\"color: #aaaaaa\"";
+    belowcut = " class=\"belowcut\"";
   }
 
-  document.write("<li" + style + " value=" + rank + ">");
+  document.write("<li" + belowcut + " value=" + rank + ">");
   write_player(player);
 
   document.write(" - " + points + " pts");
