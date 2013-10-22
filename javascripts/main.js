@@ -21,6 +21,7 @@ var seasons =
       {"Dave Bogaty": 160, "Tim Conkling": 100, "Jim Greer": 60},
       {"Dave Bogaty": 190, "Curt Geen": 120, "Jean Teather": 90, "Paul Preece": 50, "Stephen Chyau": 30},
       {"Guy Argo": 230, "David Selle": 160, "Dave Bogaty": 90, "Pablo Jablonski": 50, "Jim Greer": 30},
+      {"Curt Geen": 235, "Ernie Hernandez": 235, "Daniel Hunnicutt": 130, "David Selle": 70, "Brett Suwyn": 50}
     ]
   ]
 ;
@@ -49,6 +50,7 @@ var affilliations = {
   "Curt Geen": "Kongregate",
   "Dana Wagner": "Square",
   "Dave Bogaty": "Periscope", 
+  "Daniel Hunnicutt": "Electronic Arts",
   "David Selle": "CashBet",
   "Ernie Hernandez": "Chute",
   "Gregarious Narain": "Chute",
