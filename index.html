@@ -44,13 +44,17 @@
 
           <script>
             var season = get_current_season();
-            
-            // write most recent tournament's results
             var tournament_number = season.length;
-            var most_recent_results = season[tournament_number - 1];
+            
+            if(season_in_progress()) {              
+              // write most recent tournament's results
+              var most_recent_results = season[tournament_number - 1];
 
-            write_tournament(most_recent_results, tournament_number)
-
+              write_tournament(most_recent_results, tournament_number)
+            }
+            else {
+              write_champions(champions[champions.length - 1]);
+            }
             // write overall standings
             if (tournament_number > 1) {
               write_standings(season);
@@ -69,7 +73,7 @@
             <li>Tournaments occur every other Monday</li>
             <li>Food and drinks at 6:30pm </li>
             <li>Cards in the air at 7pm</li>
-            <li>Finish game by 11pm sharp</li>
+            <li>Tournaments typically end before 11pm</li>
             <li>Games alternate between <a href="http://www.kongregate.com">Kongregate</a> at <a href="https://maps.google.com/maps?q=2+Shaw+Alley,+San+Francisco,+CA">2 Shaw Alley</a> and <a href="https://www.blackboard.com/platforms/mobile/overview.aspx">Blackboard Mobile</a> at <a href="https://maps.google.com/maps?q=40+Gold+Street+San+Francisco,+CA+94133&hl=en&sll=37.796831,-122.402458&sspn=0.023806,0.039568&hnear=40+Gold+St,+San+Francisco,+California+94133&t=m&z=16">40 Gold St</a>. Both are in downtown San Francisco.</li>
             <li>$60 buy-in plus 1 re-buy or add-on in the first hour</li>
             <li>$60 = starting stack of chips worth $1000</li>

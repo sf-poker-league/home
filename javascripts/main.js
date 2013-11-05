@@ -32,7 +32,7 @@ var seasons =
 var champions = 
   [
     ["Charlie Ansanelli", "Gregarious Narain", "David Selle"],
-    null
+    ["Ernie Hernandez", "Curt Geen", "Dave Bogaty", "Sam Wyman", "Guy Argo"]
   ]
 ;
 
@@ -73,6 +73,10 @@ var affilliations = {
   "Unni Narayanan": "Mind Pirate",
 };
 
+function season_in_progress() {
+  return seasons.length > champions.length;
+}
+
 function write_tournament(results, tournament_number) {
   document.write("<h4>Tournament " + tournament_number + " Results</h4>");
   write_results(results);
@@ -105,14 +109,18 @@ function write_all_seasons() {
 
 function write_champions(champions) {
   document.write("<h4>Season Champions</h4>");
-  document.write("<ol>");
+  document.write("<ul>");
 
   for(var i=0; i<champions.length; i++) {
     document.write("<li>");
     write_player(champions[i]);
+
+    if (i == champions.length - 1) {
+      document.write(" - runner up");
+    }
     document.write("</li>");
   }
-  document.write("</ol>");
+  document.write("</ul>");
 }
 
 function write_standings(season) {
