@@ -142,7 +142,7 @@ function write_standings(season) {
     }
   }
 
-  document.write("<strong><span style=\"color: #303030; font-size: 16px\">Standings</span></strong>");
+  document.write("<strong><span style=\"color: #303030; font-size: 16px\">Point Standings</span></strong>");
   write_results(totals);
 }
 
