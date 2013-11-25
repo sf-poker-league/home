@@ -1,6 +1,6 @@
 // An array of seasons
 // Each season is array of tournament objects, in chronological order
-var seasons = 
+var seasons =
   [
     [
       {"Gregarious Narain": 265, "Charlie Ansanelli": 265, "Brett Suwyn": 140, "Romy Mancini": 80, "Chris Burkhart": 30},
@@ -17,7 +17,7 @@ var seasons =
       {"Dana Wagner": 220, "Jim Meenan": 150, "Jeff Gurian": 100, "Jim Greer": 60, "Tyler Breisch": 30},
       {"Sam Wyman": 350, "Unni Narayanan": 230, "Dave Bogaty": 150, "Jason Pump": 90,  "Pablo Jablonski": 50, "Calvin Chan": 30},
       {"Bill Sandberg": 240, "Jim Greer": 160, "Unni Narayanan": 110, "Pablo Jablonski": 60, "Calvin Chan": 30},
-      {"Sam Wyman": 190, "Justin Bailey": 130, "Jinfull Jeng": 90, "Jim Greer": 50, "Romy Mancini": 30}, 
+      {"Sam Wyman": 190, "Justin Bailey": 130, "Jinfull Jeng": 90, "Jim Greer": 50, "Romy Mancini": 30},
       {"Dave Bogaty": 160, "Tim Conkling": 100, "Jim Greer": 60},
       {"Dave Bogaty": 190, "Curt Geen": 120, "Jean Teather": 90, "Paul Preece": 50, "Stephen Chyau": 30},
       {"Guy Argo": 230, "David Selle": 160, "Dave Bogaty": 90, "Pablo Jablonski": 50, "Jim Greer": 30},
@@ -29,7 +29,7 @@ var seasons =
 
 // champions for each season, in chronological order
 // null if the season is still in progress
-var champions = 
+var champions =
   [
     ["Charlie Ansanelli", "Gregarious Narain", "David Selle"],
     ["Ernie Hernandez", "Curt Geen", "Dave Bogaty", "Sam Wyman", "Guy Argo"]
@@ -49,7 +49,7 @@ var affilliations = {
   "Chris Burkhart": "Chute",
   "Curt Geen": "Kongregate",
   "Dana Wagner": "Square",
-  "Dave Bogaty": "Periscope", 
+  "Dave Bogaty": "Periscope",
   "Daniel Hunnicutt": "Electronic Arts",
   "David Selle": "CashBet",
   "Ernie Hernandez": "Chute",
@@ -64,7 +64,7 @@ var affilliations = {
   "Jinfull Jeng": "Blackboard Mobile",
   "Justin Bailey": "Double Fine",
   "Matthieu Laporte": "Twitter",
-  "Pablo Jablonski": "Blackboard Mobile", 
+  "Pablo Jablonski": "Blackboard Mobile",
   "Paul Preece": "Kixeye",
   "Sam Wyman": "Blackboard Mobile",
   "Scott Waugaman": "Capcom",
@@ -93,7 +93,7 @@ function write_all_seasons() {
     document.write("<h3>Season " + season_number + "</h3>");
 
     var season_champions = champions[j];
-    if (season_champions != null) {
+    if (season_champions !== null) {
       write_champions(season_champions);
     }
     write_standings(season);
@@ -123,11 +123,7 @@ function write_champions(champions) {
   document.write("</ul>");
 }
 
-function write_standings(season) {
-  if (typeof(season)===undefined) {
-    season = get_current_season();
-  }
-
+function get_point_totals(season) {
   // determine overall standings
   // add up all cashes for each player
   var totals = {};
@@ -142,12 +138,19 @@ function write_standings(season) {
     }
   }
 
+  return sort_results(totals);
+}
+
+function write_standings(season) {
+  if (typeof(season)===undefined) {
+    season = get_current_season();
+  }
+
   document.write("<strong><span style=\"color: #303030; font-size: 16px\">Point Standings</span></strong>");
-  write_results(totals);
+  write_results(get_point_totals(season));
 }
 
 function write_results(results) {
-  results = sort_results(results);
   document.write("<ol>");
 
   var rank = 1;
@@ -205,9 +208,9 @@ function sort_results(totals) {
   var sorted =[];
   for(var player in totals) {
     sorted.push([player, totals[player]]);
-  }    
+  }
 
-  return sorted.sort(function(a, b) {return b[1] - a[1]});
+  return sorted.sort(function(a, b) {return b[1] - a[1];});
 }
 
 function numberWithCommas(n) {
@@ -215,8 +218,7 @@ function numberWithCommas(n) {
     return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : "");
 }
 
-function write_total_points() {
-  var season = get_current_season();
+function get_total_points(season) {
   var total = 0;
 
   for(var i=0; i<season.length; i++) {
@@ -227,5 +229,29 @@ function write_total_points() {
     }
   }
 
-  document.write(numberWithCommas(total));
+  return total;
+}
+
+function write_total_points() {
+  var season = get_current_season();
+  document.write(numberWithCommas(get_total_points(season)));
+}
+
+function cash_value_of_point(season, cash_total) {
+  return 0.80*cash_total/get_total_points(season);
+}
+
+function dollar_totals(season, cash_total) {
+  cash_value = cash_value_of_point(season, cash_total);
+
+  results = get_point_totals(season);
+  cash_results = [];
+
+  for(var i=0; i<results.length; i++ ) {
+    var current_player = results[i];
+    cash_result = current_player[1]*cash_value;
+    console.log(current_player[0] + " $" + Math.round(cash_result*100)/100.0);
+  }
+
+  return cash_results;
 }
