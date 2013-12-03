@@ -22,6 +22,9 @@ var seasons =
       {"Dave Bogaty": 190, "Curt Geen": 120, "Jean Teather": 90, "Paul Preece": 50, "Stephen Chyau": 30},
       {"Guy Argo": 230, "David Selle": 160, "Dave Bogaty": 90, "Pablo Jablonski": 50, "Jim Greer": 30},
       {"Curt Geen": 235, "Ernie Hernandez": 235, "Daniel Hunnicutt": 130, "David Selle": 70, "Brett Suwyn": 50}
+    ],
+    [
+      {"Dana Wagner": 220, "Bill Sandberg": 150, "Christophe Thibault": 100, "Ike Jose": 60, "Jean Teather": 30}
     ]
   ]
 ;
@@ -40,6 +43,10 @@ function get_current_season() {
   return seasons[seasons.length - 1];
 }
 
+function current_season_number() {
+  return seasons.length;
+}
+
 var affilliations = {
   "Aaron Wasserman": "Blackboard Mobile",
   "Bill Sandberg": "Zedo",
@@ -47,6 +54,7 @@ var affilliations = {
   "Calvin Chan": "Making Fun",
   "Charlie Ansanelli": "Treasure Island Flea",
   "Chris Burkhart": "Chute",
+  "Christophe Thibault": "Cockos, Inc",
   "Curt Geen": "Kongregate",
   "Dana Wagner": "Square",
   "Dave Bogaty": "Periscope",
@@ -56,6 +64,7 @@ var affilliations = {
   "Gregarious Narain": "Chute",
   "Guy Argo": "Net2TV",
   "Ian Chan": "Twitter",
+  "Ike Jose": "Zynga",
   "Jason Pump": "Loggly",
   "Jean Teather": "Meez",
   "Jeff Gurian": "Kongregate",
@@ -79,7 +88,7 @@ function season_in_progress() {
 
 function write_tournament(results, tournament_number) {
   document.write("<h4>Tournament " + tournament_number + " Results</h4>");
-  write_results(results);
+  write_results(sort_results(results));
 }
 
 function write_divider() {
@@ -93,7 +102,7 @@ function write_all_seasons() {
     document.write("<h3>Season " + season_number + "</h3>");
 
     var season_champions = champions[j];
-    if (season_champions !== null) {
+    if (season_champions) {
       write_champions(season_champions);
     }
     write_standings(season);
@@ -254,4 +263,17 @@ function dollar_totals(season, cash_total) {
   }
 
   return cash_results;
+}
+
+function getOrdinal(n) {
+    if((parseFloat(n) == parseInt(n)) && !isNaN(n)){
+        var s=["th","st","nd","rd"],
+        v=n%100;
+        return n+(s[(v-20)%10]||s[v]||s[0]);
+    }
+    return n;     
+}
+
+function write_season_ordinal() {
+  document.write(getOrdinal(current_season_number()));
 }
