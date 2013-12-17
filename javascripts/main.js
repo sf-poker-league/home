@@ -97,7 +97,24 @@ function write_divider() {
   document.write("<div style=\"text-align:center\"><h1>♠♥♦♣</h1></div>");
 }
 
+function flatten(arr) {
+  var result = [];
+
+  for(var i = 0; i < arr.length; i++){
+    var current_array = arr[i];
+    for(var j = 0; j < current_array.length; j++) {
+      var obj = current_array[j];
+      result.push(obj);
+    }
+  }
+
+  return result;
+}
+
 function write_all_seasons() {
+  document.write("<h3>All-time Leaders</h3>");
+  write_standings();
+
   for(var j=seasons.length - 1; j>=0; j--) {
     var season = seasons[j];
     var season_number = j+1;
@@ -138,10 +155,16 @@ function get_point_totals(season) {
   // determine overall standings
   // add up all cashes for each player
   var totals = {};
+  var tournaments = season;
 
-  for(var i=0; i<season.length; i++) {
-    tournament = season[i];
-    
+  // if no season is passed, do all-time
+  if (typeof(season)==="undefined") {
+    tournaments = flatten(seasons);
+  }
+
+  for(var i = 0; i < tournaments.length; i++) {
+    tournament = tournaments[i];
+
     for(var player in tournament) {
         var points = totals[player] || 0;
         points += tournament[player];
@@ -153,15 +176,23 @@ function get_point_totals(season) {
 }
 
 function write_standings(season) {
-  if (typeof(season)===undefined) {
-    season = get_current_season();
-  }
+  var point_totals;
+
+  point_totals = get_point_totals(season);
 
   document.write("<strong><span style=\"color: #303030; font-size: 16px\">Point Standings</span></strong>");
-  write_results(get_point_totals(season));
+
+  var cutoff = 10;
+
+  // no cutoff for all-time leader list
+  if (typeof(season) === "undefined") {
+    cutoff = Number.MAX_VALUE;
+  }
+
+  write_results(point_totals, cutoff);
 }
 
-function write_results(results) {
+function write_results(results, cutoff) {
   document.write("<ol>");
 
   var rank = 1;
@@ -182,7 +213,7 @@ function write_results(results) {
       }
     }
 
-    write_place(rank, current_player);
+    write_place(rank, current_player, cutoff);
   }
   document.write("</ol>");
 }
@@ -196,14 +227,14 @@ function write_player(player) {
   }
 }
 
-function write_place(rank, place) {
+function write_place(rank, place, cutoff) {
   var player = place[0];
   var points = place[1];
   
   var belowcut = "";
 
   // use lighter color for players below the cut
-  if(rank > 10) {
+  if(rank > cutoff) {
     belowcut = " class=\"belowcut\"";
   }
 
