@@ -24,7 +24,8 @@ var seasons =
       {"Curt Geen": 235, "Ernie Hernandez": 235, "Daniel Hunnicutt": 130, "David Selle": 70, "Brett Suwyn": 50}
     ],
     [
-      {"Dana Wagner": 220, "Bill Sandberg": 150, "Christophe Thibault": 100, "Ike Jose": 60, "Jean Teather": 30}
+      {"Dana Wagner": 220, "Bill Sandberg": 150, "Christophe Thibault": 100, "Ike Jose": 60, "Jean Teather": 30},
+      {"Jim Greer": 220, "Dave Bogaty": 150, "Alex Gudich": 100, "Ernie Hernandez": 60, "Pablo Jablonski": 30},
     ]
   ]
 ;
@@ -49,6 +50,7 @@ function current_season_number() {
 
 var affilliations = {
   "Aaron Wasserman": "Blackboard Mobile",
+  "Alex Gudich": "PPR Worldwide",
   "Bill Sandberg": "Zedo",
   "Brett Suwyn": "Chute",
   "Calvin Chan": "Making Fun",
