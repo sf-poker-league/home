@@ -114,6 +114,7 @@ function flatten(arr) {
 function write_all_seasons() {
   document.write("<h3>All-time Leaders</h3>");
   write_standings();
+  document.write("<p><a href='index.html' style='color: #aa0000'>Home</a></p>")
 
   for(var j=seasons.length - 1; j>=0; j--) {
     var season = seasons[j];
