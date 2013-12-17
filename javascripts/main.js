@@ -214,6 +214,12 @@ function write_place(rank, place) {
   document.write("</li>");
 }
 
+// used as a tiebreaker when two players are equal in points
+// we use alphabetical order as a tiebreaker
+function string_sort_key(s) {
+  return s[0].toLowerCase().charCodeAt(0) / -1000;
+}
+
 function sort_results(totals) {
   // sort players (need to convert from object to array)
   var sorted =[];
@@ -221,7 +227,7 @@ function sort_results(totals) {
     sorted.push([player, totals[player]]);
   }
 
-  return sorted.sort(function(a, b) {return b[1] - a[1];});
+  return sorted.sort(function(a, b) {return (b[1] + string_sort_key(b[0])) - (a[1] + string_sort_key(a[0]));});
 }
 
 function numberWithCommas(n) {
