@@ -26,6 +26,7 @@ var seasons =
     [
       {"Dana Wagner": 220, "Bill Sandberg": 150, "Christophe Thibault": 100, "Ike Jose": 60, "Jean Teather": 30},
       {"Jim Greer": 220, "Dave Bogaty": 150, "Alex Gudich": 100, "Ernie Hernandez": 60, "Pablo Jablonski": 30},
+      {"Brett Suwyn": 30, "Tim Conkling": 60, "Jim Meenan": 220, "Christophe Thibault": 100, "Gavier Aviv": 150}
     ]
   ]
 ;
@@ -63,6 +64,7 @@ var affilliations = {
   "Daniel Hunnicutt": "Electronic Arts",
   "David Selle": "CashBet",
   "Ernie Hernandez": "Chute",
+  "Gavier Aviv": "Moishe House",
   "Gregarious Narain": "Chute",
   "Guy Argo": "Net2TV",
   "Ian Chan": "Twitter",
