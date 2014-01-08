@@ -64,7 +64,7 @@ var affilliations = {
   "Daniel Hunnicutt": "Electronic Arts",
   "David Selle": "CashBet",
   "Ernie Hernandez": "Chute",
-  "Gavier Aviv": "Moishe House",
+  "Gvir Aviv": "Moishe House",
   "Gregarious Narain": "Chute",
   "Guy Argo": "Net2TV",
   "Ian Chan": "Twitter",
