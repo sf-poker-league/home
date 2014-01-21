@@ -80,7 +80,7 @@ var affilliations = {
   "Matthieu Laporte": "Twitter",
   "Pablo Jablonski": "Blackboard Mobile",
   "Paul Preece": "Kixeye",
-  "Sam Wyman": "Blackboard Mobile",
+  "Sam Wyman": "Crowdtilt",
   "Scott Waugaman": "Capcom",
   "Stephen Chyau": "Blackboard Mobile",
   "Tyler Breisch": "YouTube",
