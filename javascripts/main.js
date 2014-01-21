@@ -26,7 +26,8 @@ var seasons =
     [
       {"Dana Wagner": 220, "Bill Sandberg": 150, "Christophe Thibault": 100, "Ike Jose": 60, "Jean Teather": 30},
       {"Jim Greer": 220, "Dave Bogaty": 150, "Alex Gudich": 100, "Ernie Hernandez": 60, "Pablo Jablonski": 30},
-      {"Brett Suwyn": 30, "Tim Conkling": 60, "Jim Meenan": 220, "Christophe Thibault": 100, "Gvir Aviv": 150}
+      {"Brett Suwyn": 30, "Tim Conkling": 60, "Jim Meenan": 220, "Christophe Thibault": 100, "Gvir Aviv": 150},
+      {"Bill Sandberg": 30, "Mike Shriver": 80, "Unni Narayanan": 110, "Sam Wyman": 180},
     ]
   ]
 ;
@@ -210,7 +211,7 @@ function write_results(results, cutoff) {
       var last_points = last_player[1];
 
       if(current_points != last_points) {
-        // if the player before me has the same total, my rank is the same as theirs                
+        // if the player before me has the same total, my rank is the same as theirs
         // so don't increment
         rank = i + 1;
       }
@@ -233,7 +234,7 @@ function write_player(player) {
 function write_place(rank, place, cutoff) {
   var player = place[0];
   var points = place[1];
-  
+
   var belowcut = "";
 
   // use lighter color for players below the cut
@@ -313,7 +314,7 @@ function getOrdinal(n) {
         v=n%100;
         return n+(s[(v-20)%10]||s[v]||s[0]);
     }
-    return n;     
+    return n;
 }
 
 function write_season_ordinal() {
