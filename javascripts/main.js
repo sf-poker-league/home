@@ -29,6 +29,7 @@ var seasons =
       {"Brett Suwyn": 30, "Tim Conkling": 60, "Jim Meenan": 220, "Christophe Thibault": 100, "Gvir Aviv": 150},
       {"Bill Sandberg": 30, "Mike Shriver": 80, "Unni Narayanan": 110, "Sam Wyman": 180},
       {"Tim Conkling": 30, "Pablo Jablonski": 70, "Brett Suwyn": 120, "Alex Gudich": 180, "Mike Shriver": 280},
+      {"Amar Anand": 30, "Christophe Thibault": 60, "Bill Sandberg": 110, "David Selle": 170, "Jim Greer": 250},
     ]
   ]
 ;
@@ -54,6 +55,7 @@ function current_season_number() {
 var affilliations = {
   "Aaron Wasserman": "Blackboard Mobile",
   "Alex Gudich": "PPR Worldwide",
+  "Amar Anand": "Twitter",
   "Bill Sandberg": "Zedo",
   "Brett Suwyn": "Chute",
   "Calvin Chan": "Making Fun",
