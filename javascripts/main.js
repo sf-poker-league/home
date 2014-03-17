@@ -30,7 +30,7 @@ var seasons =
       {"Bill Sandberg": 30, "Mike Shriver": 80, "Unni Narayanan": 110, "Sam Wyman": 180},
       {"Tim Conkling": 30, "Pablo Jablonski": 70, "Brett Suwyn": 120, "Alex Gudich": 180, "Mike Shriver": 280},
       {"Amar Anand": 30, "Christophe Thibault": 60, "Bill Sandberg": 110, "David Selle": 170, "Jim Greer": 250},
-      {"John": 190, "Mike Shriver": 120, "Sam Wyman": 80, "David Selle": 60, "Jim Meenan": 30},
+      {"John Huang": 190, "Mike Shriver": 120, "Sam Wyman": 80, "David Selle": 60, "Jim Meenan": 30},
     ]
   ]
 ;
