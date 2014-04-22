@@ -32,7 +32,8 @@ var seasons =
       {"Amar Anand": 30, "Christophe Thibault": 60, "Bill Sandberg": 110, "David Selle": 170, "Jim Greer": 250},
       {"John Huang": 190, "Mike Shriver": 120, "Sam Wyman": 80, "David Selle": 60, "Jim Meenan": 30},
       {"Alex Gudich": 30, "Mike Shriver": 50, "Christophe Thibault": 90, "Brett Suwyn": 150, "Sam Wyman": 220},
-      {"Guy Argo": 200, "Jim Greer": 140, "Sam Wyman": 80, "John Huang": 40}
+      {"Guy Argo": 200, "Jim Greer": 140, "Sam Wyman": 80, "John Huang": 40},
+      {"Jim Greer": 30, "Alex Gudich": 70, "Christophe Thibault": 120, "Bob Ippolito": 180, "Ian Chan": 270},
     ]
   ]
 ;
@@ -60,6 +61,7 @@ var affilliations = {
   "Alex Gudich": "PPR Worldwide",
   "Amar Anand": "Twitter",
   "Bill Sandberg": "Zedo",
+  "Bob Ippolito": "Mission Bit",
   "Brett Suwyn": "Chute",
   "Calvin Chan": "Making Fun",
   "Charlie Ansanelli": "Treasure Island Flea",
