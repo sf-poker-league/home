@@ -35,6 +35,7 @@ var seasons =
       {"Guy Argo": 200, "Jim Greer": 140, "Sam Wyman": 80, "John Huang": 40},
       {"Jim Greer": 30, "Alex Gudich": 70, "Christophe Thibault": 120, "Bob Ippolito": 180, "Ian Chan": 270},
       {"Martin Welker": 30, "Brett Suwyn": 160, "David Selle": 60,"Tim Conkling": 230, "John Huang":100},
+      {"Sam Wyman": 30, "Ralph Marx": 50, "Ian Chan": 80, "John Huang": 158, "David Selle": 162}
     ]
   ]
 ;
