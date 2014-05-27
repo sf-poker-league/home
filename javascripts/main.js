@@ -46,7 +46,8 @@ var seasons =
 var champions =
   [
     ["Charlie Ansanelli", "Gregarious Narain", "David Selle"],
-    ["Ernie Hernandez", "Curt Geen", "Dave Bogaty", "Sam Wyman", "Guy Argo"]
+    ["Ernie Hernandez", "Curt Geen", "Dave Bogaty", "Sam Wyman", "Guy Argo"],
+    ["Ian Chan", "Jim Greer", "John Huang", "Mike Shriver"]
   ]
 ;
 
@@ -157,9 +158,9 @@ function write_champions(champions) {
     document.write("<li>");
     write_player(champions[i]);
 
-    if (i == champions.length - 1) {
-      document.write(" - runner up");
-    }
+    // if (i == champions.length - 1) {
+    //   document.write(" - runner up");
+    // }
     document.write("</li>");
   }
   document.write("</ul>");
