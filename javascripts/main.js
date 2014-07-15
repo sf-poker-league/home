@@ -36,6 +36,9 @@ var seasons =
       {"Jim Greer": 30, "Alex Gudich": 70, "Christophe Thibault": 120, "Bob Ippolito": 180, "Ian Chan": 270},
       {"Martin Welker": 30, "Brett Suwyn": 160, "David Selle": 60,"Tim Conkling": 230, "John Huang":100},
       {"Sam Wyman": 30, "Ralph Marx": 50, "Ian Chan": 80, "John Huang": 158, "David Selle": 162}
+    ],
+    [
+      {"Nick Stuart": 40, "Jim Greer": 80, "Mike Shriver": 150, "Sam Wyman": 220, "John Huang": 330},
     ]
   ]
 ;
@@ -89,6 +92,7 @@ var affilliations = {
   "Jinfull Jeng": "Blackboard Mobile",
   "Justin Bailey": "Double Fine",
   "Matthieu Laporte": "Twitter",
+  "Nick Stuart": "Salesforce",
   "Pablo Jablonski": "Blackboard Mobile",
   "Paul Preece": "Kixeye",
   "Sam Wyman": "Crowdtilt",
