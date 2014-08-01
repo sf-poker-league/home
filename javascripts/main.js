@@ -39,7 +39,8 @@ var seasons =
     ],
     [
       {"Nick Stuart": 40, "Jim Greer": 80, "Mike Shriver": 150, "Sam Wyman": 220, "John Huang": 330},
-      {"Bill Sandberg": 40, "Tyler Breisch": 70, "Sam Wyman": 130, "Brian Jou": 200, "Curt Geen": 300}
+      {"Bill Sandberg": 40, "Tyler Breisch": 70, "Sam Wyman": 130, "Brian Jou": 200, "Curt Geen": 300},
+      {"Jim Greer": 1000, "Dave": 2, "Larry": 1000, "Calvin Chan": 50}
     ]
   ]
 ;
@@ -51,7 +52,7 @@ var champions =
   [
     ["Charlie Ansanelli", "Gregarious Narain", "David Selle"],
     ["Ernie Hernandez", "Curt Geen", "Dave Bogaty", "Sam Wyman", "Guy Argo"],
-    ["Ian Chan", "Jim Greer", "John Huang", "Mike Shriver"]
+    ["Ian Chan", "Jim Greer", "John Huang", "Mike Shriver"],
   ]
 ;
 
@@ -108,15 +109,6 @@ function season_in_progress() {
   return seasons.length > champions.length;
 }
 
-function write_tournament(results, tournament_number) {
-  document.write("<h4>Tournament " + tournament_number + " Results</h4>");
-  write_results(sort_results(results));
-}
-
-function write_divider() {
-  document.write("<div style=\"text-align:center\"><h1>♠♥♦♣</h1></div>");
-}
-
 function flatten(arr) {
   var result = [];
 
@@ -156,22 +148,6 @@ function write_all_seasons() {
   }
 }
 
-function write_champions(champions) {
-  document.write("<h4>Season Champions</h4>");
-  document.write("<ul>");
-
-  for(var i=0; i<champions.length; i++) {
-    document.write("<li>");
-    write_player(champions[i]);
-
-    // if (i == champions.length - 1) {
-    //   document.write(" - runner up");
-    // }
-    document.write("</li>");
-  }
-  document.write("</ul>");
-}
-
 function get_point_totals(season) {
   // determine overall standings
   // add up all cashes for each player
@@ -194,76 +170,6 @@ function get_point_totals(season) {
   }
 
   return sort_results(totals);
-}
-
-function write_standings(season) {
-  var point_totals;
-
-  point_totals = get_point_totals(season);
-
-  document.write("<strong><span style=\"color: #303030; font-size: 16px\">Point Standings</span></strong>");
-
-  var cutoff = 10;
-
-  // no cutoff for all-time leader list
-  if (typeof(season) === "undefined") {
-    cutoff = Number.MAX_VALUE;
-  }
-
-  write_results(point_totals, cutoff);
-}
-
-function write_results(results, cutoff) {
-  document.write("<ol>");
-
-  var rank = 1;
-  for(var i=0; i<results.length; i++ ) {
-    var current_player = results[i];
-
-    // check for ties
-    if(i > 0) {
-      var last_player = results[i-1];
-
-      var current_points = current_player[1];
-      var last_points = last_player[1];
-
-      if(current_points != last_points) {
-        // if the player before me has the same total, my rank is the same as theirs
-        // so don't increment
-        rank = i + 1;
-      }
-    }
-
-    write_place(rank, current_player, cutoff);
-  }
-  document.write("</ol>");
-}
-
-function write_player(player) {
-  document.write(player);
-
-  var affiliation = affilliations[player];
-  if (affiliation) {
-    document.write(" (" + affiliation + ")");
-  }
-}
-
-function write_place(rank, place, cutoff) {
-  var player = place[0];
-  var points = place[1];
-
-  var belowcut = "";
-
-  // use lighter color for players below the cut
-  if(rank > cutoff) {
-    belowcut = " class=\"belowcut\"";
-  }
-
-  document.write("<li" + belowcut + " value=" + rank + ">");
-  write_player(player);
-
-  document.write(" - " + points + " pts");
-  document.write("</li>");
 }
 
 // used as a tiebreaker when two players are equal in points
@@ -301,9 +207,9 @@ function get_total_points(season) {
   return total;
 }
 
-function write_total_points() {
+function total_points() {
   var season = get_current_season();
-  document.write(numberWithCommas(get_total_points(season)));
+  return numberWithCommas(get_total_points(season));
 }
 
 function cash_value_of_point(season, cash_total) {
