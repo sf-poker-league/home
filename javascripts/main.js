@@ -334,6 +334,6 @@ function getOrdinal(n) {
     return n;
 }
 
-function write_season_ordinal() {
-  document.write(getOrdinal(current_season_number()));
+function season_ordinal() {
+  return getOrdinal(current_season_number());
 }

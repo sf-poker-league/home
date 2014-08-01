@@ -8,6 +8,9 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
     <link rel="icon" type="image/x-icon" href="/favicon.png" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery-1.8.0.min.js "></script>
+
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -25,28 +28,51 @@
     })();
 
   </script>
+
+  <script src="javascripts/main.js"></script>
+  <script>
+      window.onload = initPage;
+      function initPage() {
+        var season = get_current_season();
+
+        var data = {
+          "season_ordinal": season_ordinal(),
+          "season": season,
+          "tournament_number": season.length,
+          "latest_tournament": sort_results(season[season.length-1]),
+        },
+          parsedTemplate = "",
+          templateText = $('#template').html(),
+          template = _.template(templateText);
+          parsedTemplate = template(data);
+        $("#container").html(parsedTemplate);
+      }
+    </script>
   </head>
 
   <body>
     <div id="container">
-      <div class="inner">
-        <script src="javascripts/main.js">
-        </script>
+      <script id="template" type="text/template">
+        <div class="inner">
 
-        <header>
-          <a href="index.html"><h1>SF Poker League</h1></a>
-          <h5>A poker league for game developers and techies in San Francisco.<br /> 
-            Now in our <script>write_season_ordinal()</script> season.</h5>
-        </header>
-        <div style="text-align:center"><h1>♠♥♦♣</h1></div>
-
+          <header>
+            <a href="index.html"><h1>SF Poker League</h1></a>
+            <h5>A poker league for game developers and techies in San Francisco.<br /> 
+              Now in our <%= season_ordinal %> season.</h5>
+          </header>
+          <div style="text-align:center"><h1>♠♥♦♣</h1></div>
         <section id="leaders" >          
 
-
-          <script>
-            var season = get_current_season();
-            var tournament_number = season.length;
-            
+          <h4>Tournament <%= tournament_number %> Results</h4>
+          <ol>
+            <% _.each(latest_tournament, function(place) {  %>
+              <% player = place[0]; %>
+              <% affiliation = affilliations[player]; %>
+              <li><%= player %><%= affiliation ? " (" + affiliation + ")" : ""%> - <%= place[1] %> pts</li>
+            <% }); %>
+          </ol>
+        </script>
+          <script>            
             if(season_in_progress()) {              
               // write most recent tournament's results
               var most_recent_results = season[tournament_number - 1];
