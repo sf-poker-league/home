@@ -8,41 +8,61 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
     <link rel="icon" type="image/x-icon" href="/favicon.png" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery-1.8.0.min.js "></script>
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   <title>San Francisco Poker League - All Results</title>
-  <script type="text/javascript">
-
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-39176741-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-
-  </script>
+  <script src="javascripts/main.js"></script>
+  <script>
+      window.onload = initPage;
+      function initPage() {
+        var data = {
+          lifetime_point_totals: get_point_totals()
+        };
+        templateText = $('#template').html();
+        template = _.template(templateText);
+        $("body").append(template(data));
+      }
+    </script>
+  </head>
   </head>
 
   <body>
-    <div id="container">
-      <div class="inner">
+    <script id="template" type="text/template">
+      <div id="container">
+        <div class="inner">
 
-        <header>
-          <a href="index.html"><h1>SF Poker League</h1></a>
-        </header>
-        <div style="text-align:center"><h1>♠♥♦♣</h1></div>
+          <header>
+            <a href="index.html"><h1>SF Poker League</h1></a>
+          </header>
+          <div style="text-align:center"><h1>♠♥♦♣</h1></div>
 
-        <section id="leaders" >          
-          <script src="javascripts/main.js">
-          </script>
+          <section id="leaders" >          
+            <h3>All-time Leaders</h3>
+            <strong><span style="color: #303030; font-size: 16px">Point Standings</span></strong>
+            <%= _.templateFromUrl("/results.html", { results: lifetime_point_totals, cutoff: Number.MAX_VALUE } ) %>
 
-          <script>write_all_seasons()</script>
-        </section>
+            <% _.each(seasons.reverse(), function(season, i) { %>
+              <% var season_number = seasons.length - i; %>
+              <h3>Season <%= season_number %></h3>
+              <%= _.templateFromUrl("/champions.html", { season_champions: champions[seasons.length - (i+1)]}) %>
+              
+              <strong><span style="color: #303030; font-size: 16px">Point Standings</span></strong>
+              <%= _.templateFromUrl("/results.html", { results: get_point_totals(season), cutoff: 10}  ) %>
+
+              <% _.each(season.reverse(), function(tournament, j) { %>
+                <h4>Tournament <%= season.length - j %> Results</h4>
+                <%= _.templateFromUrl("/results.html", { results: sort_results(tournament), cutoff: Number.MAX_VALUE } ) %>
+              <% }); %>
+
+              <div style="text-align:center"><h1>♠♥♦♣</h1></div>
+
+            <% }); %>
+          </section>
+        </div>
       </div>
-    </div>
+    </script>
   </body>
 </html>

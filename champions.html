@@ -1,0 +1,7 @@
+<h4>Season Champions</h4>
+<ul>
+<% _.each(season_champions, function(player) { %>
+  <% affiliation = affilliations[player]; %>
+  <li><%= player %><%= affiliation ? " (" + affiliation + ")" : ""%></li>
+<% }); %>
+</ul>
