@@ -42,19 +42,19 @@
           <section id="leaders" >          
             <h3>All-time Leaders</h3>
             <strong><span style="color: #303030; font-size: 16px">Point Standings</span></strong>
-            <%= _.templateFromUrl("/results.html", { results: lifetime_point_totals, cutoff: Number.MAX_VALUE } ) %>
+            <%= _.templateFromUrl("/_results.html", { results: lifetime_point_totals, cutoff: Number.MAX_VALUE } ) %>
 
             <% _.each(seasons.reverse(), function(season, i) { %>
               <% var season_number = seasons.length - i; %>
               <h3>Season <%= season_number %></h3>
-              <%= _.templateFromUrl("/champions.html", { season_champions: champions[seasons.length - (i+1)]}) %>
+              <%= _.templateFromUrl("/_champions.html", { season_champions: champions[seasons.length - (i+1)]}) %>
               
               <strong><span style="color: #303030; font-size: 16px">Point Standings</span></strong>
-              <%= _.templateFromUrl("/results.html", { results: get_point_totals(season), cutoff: 10}  ) %>
+              <%= _.templateFromUrl("/_results.html", { results: get_point_totals(season), cutoff: 10}  ) %>
 
               <% _.each(season.reverse(), function(tournament, j) { %>
                 <h4>Tournament <%= season.length - j %> Results</h4>
-                <%= _.templateFromUrl("/results.html", { results: sort_results(tournament), cutoff: Number.MAX_VALUE } ) %>
+                <%= _.templateFromUrl("/_results.html", { results: sort_results(tournament), cutoff: Number.MAX_VALUE } ) %>
               <% }); %>
 
               <div style="text-align:center"><h1>♠♥♦♣</h1></div>
