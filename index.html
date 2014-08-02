@@ -50,7 +50,7 @@
             <h4>Tournament <%= tournament_number %> Results</h4>
             <%= _.templateFromUrl("/_results.html", { results: latest_tournament, cutoff: Number.MAX_VALUE } ) %>
           <% } else { %>
-            <%= _.templateFromUrl("/_champions.html", { season_champions: champions[season.length-1]}) %>
+            <%= _.templateFromUrl("/_champions.html", { season_champions: champions[seasons.length-1]}) %>
           <% } %>
 
           <% if (tournament_number > 1) { %>
