@@ -40,7 +40,6 @@ var seasons =
     [
       {"Nick Stuart": 40, "Jim Greer": 80, "Mike Shriver": 150, "Sam Wyman": 220, "John Huang": 330},
       {"Bill Sandberg": 40, "Tyler Breisch": 70, "Sam Wyman": 130, "Brian Jou": 200, "Curt Geen": 300},
-      {"Jim Greer": 1000, "Dave": 2, "Larry": 1000, "Calvin Chan": 50}
     ]
   ]
 ;
@@ -121,31 +120,6 @@ function flatten(arr) {
   }
 
   return result;
-}
-
-function write_all_seasons() {
-  document.write("<h3>All-time Leaders</h3>");
-  write_standings();
-  document.write("<p><a href='index.html' style='color: #aa0000'>Home</a></p>")
-
-  for(var j=seasons.length - 1; j>=0; j--) {
-    var season = seasons[j];
-    var season_number = j+1;
-    document.write("<h3>Season " + season_number + "</h3>");
-
-    var season_champions = champions[j];
-    if (season_champions) {
-      write_champions(season_champions);
-    }
-    write_standings(season);
-
-    for(var i=season.length - 1; i>=0; i--) {
-      var tournament_number = i+1;
-      write_tournament(season[i], tournament_number, season_number);
-    }
-
-    write_divider();
-  }
 }
 
 function get_point_totals(season) {
@@ -243,3 +217,27 @@ function getOrdinal(n) {
 function season_ordinal() {
   return getOrdinal(current_season_number());
 }
+
+_.mixin({templateFromUrl: function (url, data, settings) {
+  var templateHtml = "";
+  this.cache = this.cache || {};
+
+  if (this.cache[url]) {
+      templateHtml = this.cache[url];
+  } else {
+      $.ajax({
+          url: url,
+          method: "GET",
+          async: false,
+          success: function(data) {
+              templateHtml = data;
+          }
+      });
+
+      this.cache[url] = templateHtml;
+  }
+
+  return _.template(templateHtml, data, settings);
+}});
+
+

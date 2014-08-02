@@ -1,0 +1,13 @@
+<ol>
+  <% var last_points = 0, rank = 0; %>
+  <% _.each(results, function(place, i) {  %>
+    <% player = place[0]; %>
+    <% points = place[1]; %> 
+    <% if (points != last_points) rank = i + 1; %>
+    <% affiliation = affilliations[player]; %>
+    <li value="<%= rank %>" <%= rank > cutoff ? "class='belowcut'" : "" %>>
+    <%= player %><%= affiliation ? " (" + affiliation + ")" : ""%> - <%= points %> pts
+    </li>
+    <% last_points = points; %>
+  <% }); %>
+</ol>

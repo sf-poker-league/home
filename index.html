@@ -15,19 +15,6 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   <title>San Francisco Poker League</title>
-  <script type="text/javascript">
-
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-39176741-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-
-  </script>
 
   <script src="javascripts/main.js"></script>
   <script>
@@ -36,22 +23,14 @@
         var season = get_current_season();
 
         var data = {
-          "season_ordinal": season_ordinal(),
-          "season": season,
-          "tournament_number": season.length,
-          "latest_tournament": sort_results(season[season.length-1]),
-          "partial": function( partialName, variables ) {
-            return _.template(
-              $( "#tmpl-" + partialName ).html(),
-              variables
-            );
-          }
+          season_ordinal: season_ordinal(),
+          season: season,
+          tournament_number: season.length,
+          latest_tournament: sort_results(season[season.length-1])
         },
-          parsedTemplate = "",
-          templateText = $('#template').html(),
-          template = _.template(templateText);
-          parsedTemplate = template(data);
-        $("body").append(parsedTemplate);
+        templateText = $('#template').html();
+        template = _.template(templateText);
+        $("body").append(template(data));
       }
     </script>
   </head>
@@ -69,19 +48,14 @@
         <section id="leaders" >          
           <% if (season_in_progress()) { %>
             <h4>Tournament <%= tournament_number %> Results</h4>
-            <%= partial( "results", { results: latest_tournament, cutoff: Number.MAX_VALUE } ) %>   
+            <%= _.templateFromUrl("/results.html", { results: latest_tournament, cutoff: Number.MAX_VALUE } ) %>
           <% } else { %>
-            <h4>Season Champions</h4>
-            <ul>
-            <% _.each(champions, function(player) { %>
-              <li><%= player %><%= affiliation ? " (" + affiliation + ")" : ""%></li>
-            <% }); %>
-            </ul>
+            <%= _.templateFromUrl("/champions.html", { season_champions: champions[season.length-1]}) %>
           <% } %>
 
           <% if (tournament_number > 1) { %>
             <strong><span style="color: #303030; font-size: 16px">Point Standings</span></strong>
-            <%= partial("results", { results: get_point_totals(season), cutoff: 10} ) %>
+            <%= _.templateFromUrl("/results.html", { results: get_point_totals(season), cutoff: 10}  ) %>
           <% } %>
         </section>
         <p>Prize fund is currently at $<%= total_points() %>.</p>
@@ -118,20 +92,5 @@
         </div>
     </div>
     </script>
-    <script type="text/html" id="tmpl-results">
-      <ol>
-        <% var last_points = 0, rank = 0; %>
-        <% _.each(results, function(place, i) {  %>
-          <% player = place[0]; %>
-          <% points = place[1]; %> 
-          <% if (points != last_points) rank = i + 1; %>
-          <% affiliation = affilliations[player]; %>
-          <li value="<%= rank %>" <%= rank > cutoff ? "class='belowcut'" : "" %>>
-          <%= player %><%= affiliation ? " (" + affiliation + ")" : ""%> - <%= points %> pts
-          </li>
-          <% last_points = points; %>
-        <% }); %>
-      </ol>
-    </script>  
     </body>
 </html>
