@@ -48,14 +48,14 @@
         <section id="leaders" >          
           <% if (season_in_progress()) { %>
             <h4>Tournament <%= tournament_number %> Results</h4>
-            <%= _.templateFromUrl("/results.html", { results: latest_tournament, cutoff: Number.MAX_VALUE } ) %>
+            <%= _.templateFromUrl("/_results.html", { results: latest_tournament, cutoff: Number.MAX_VALUE } ) %>
           <% } else { %>
-            <%= _.templateFromUrl("/champions.html", { season_champions: champions[season.length-1]}) %>
+            <%= _.templateFromUrl("/_champions.html", { season_champions: champions[seasons.length-1]}) %>
           <% } %>
 
           <% if (tournament_number > 1) { %>
             <strong><span style="color: #303030; font-size: 16px">Point Standings</span></strong>
-            <%= _.templateFromUrl("/results.html", { results: get_point_totals(season), cutoff: 10}  ) %>
+            <%= _.templateFromUrl("/_results.html", { results: get_point_totals(season), cutoff: 10}  ) %>
           <% } %>
         </section>
         <p>Prize fund is currently at $<%= total_points() %>.</p>
