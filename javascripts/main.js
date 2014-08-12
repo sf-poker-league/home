@@ -40,6 +40,7 @@ var seasons =
     [
       {"Nick Stuart": 40, "Jim Greer": 80, "Mike Shriver": 150, "Sam Wyman": 220, "John Huang": 330},
       {"Bill Sandberg": 40, "Tyler Breisch": 70, "Sam Wyman": 130, "Brian Jou": 200, "Curt Geen": 300},
+      {"Vivek Reddy": 30, "Bill Sandberg": 65, "Curt Green": 85, "Victor Dong": 120, "Pablo Jablonski": 200},
     ]
   ]
 ;
