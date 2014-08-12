@@ -65,7 +65,7 @@ function current_season_number() {
 }
 
 var affilliations = {
-  "Aaron Wasserman": "Blackboard Mobile",
+  "Aaron Wasserman": "Periscope",
   "Alex Gudich": "PPR Worldwide",
   "Amar Anand": "Twitter",
   "Bill Sandberg": "Zedo",
@@ -96,9 +96,9 @@ var affilliations = {
   "Justin Bailey": "Double Fine",
   "Matthieu Laporte": "Twitter",
   "Nick Stuart": "Salesforce",
-  "Pablo Jablonski": "Blackboard Mobile",
+  "Pablo Jablonski": "Hotel Tonight",
   "Paul Preece": "Kixeye",
-  "Sam Wyman": "Crowdtilt",
+  "Sam Wyman": "Tilt",
   "Scott Waugaman": "Capcom",
   "Stephen Chyau": "Blackboard Mobile",
   "Tyler Breisch": "YouTube",
