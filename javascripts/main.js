@@ -104,6 +104,7 @@ var affilliations = {
   "Stephen Chyau": "Blackboard Mobile",
   "Tyler Breisch": "YouTube",
   "Unni Narayanan": "Mind Pirate",
+  "Victor Dong": "Twitter"
 };
 
 function season_in_progress() {
