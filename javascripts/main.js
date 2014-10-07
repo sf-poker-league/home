@@ -43,7 +43,8 @@ var seasons =
       {"Vivek Reddy": 30, "Bill Sandberg": 65, "Curt Geen": 85, "Victor Dong": 120, "Pablo Jablonski": 200},
       {"Pablo Jablonski": 30, "Ben Smith": 60, "Ian Chan": 110, "Jim Greer": 170, "Victor Dong": 250},
       {"Nick Stuart": 60, "Victor Dong":155, "Mike Shriver":155},
-      {"Nick Stuart": 80, "David Selle": 140, "Alex Gudich": 200}
+      {"Nick Stuart": 80, "David Selle": 140, "Alex Gudich": 200},
+      {"David Selle": 50, "Victor Dong": 90, "Sam Wyman": 140}
     ]
   ]
 ;
