@@ -45,7 +45,8 @@ var seasons =
       {"Nick Stuart": 60, "Victor Dong":155, "Mike Shriver":155},
       {"Nick Stuart": 80, "David Selle": 140, "Alex Gudich": 200},
       {"David Selle": 50, "Victor Dong": 90, "Sam Wyman": 140},
-      {"Brett Suwyn": 50, "Mike Shriver": 70, "Sam Wyman": 100}
+      {"Brett Suwyn": 50, "Mike Shriver": 70, "Sam Wyman": 100},
+      {"Alex Gudich": 30, "Nick Stuart": 60, "Jeremy Linden": 90, "Sam Wyman": 140}
     ]
   ]
 ;
