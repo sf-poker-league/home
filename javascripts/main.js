@@ -2,6 +2,7 @@
 // Each season is array of tournament objects, in chronological order
 var seasons =
   [
+    //  season 1
     [
       {"Gregarious Narain": 265, "Charlie Ansanelli": 265, "Brett Suwyn": 140, "Romy Mancini": 80, "Chris Burkhart": 30},
       {"David Selle": 290, "Scott Waugaman": 190, "Sam Wyman": 130, "Justin Bailey": 70, "Jim Greer": 40 },
@@ -13,6 +14,7 @@ var seasons =
       {"Sam Wyman": 175, "Gregarious Narain": 175, "Aaron Wasserman": 100, "Jean Teather": 60, "Brett Suwyn": 30},
       {"Jean Teather": 40, "Romy Mancini": 60, "David Selle": 90, "Aaron Wasserman": 130}
     ],
+    //  season 2
     [
       {"Dana Wagner": 220, "Jim Meenan": 150, "Jeff Gurian": 100, "Jim Greer": 60, "Tyler Breisch": 30},
       {"Sam Wyman": 350, "Unni Narayanan": 230, "Dave Bogaty": 150, "Jason Pump": 90,  "Pablo Jablonski": 50, "Calvin Chan": 30},
@@ -23,6 +25,7 @@ var seasons =
       {"Guy Argo": 230, "David Selle": 160, "Dave Bogaty": 90, "Pablo Jablonski": 50, "Jim Greer": 30},
       {"Curt Geen": 235, "Ernie Hernandez": 235, "Daniel Hunnicutt": 130, "David Selle": 70, "Brett Suwyn": 50}
     ],
+    //  season 3
     [
       {"Dana Wagner": 220, "Bill Sandberg": 150, "Christophe Thibault": 100, "Ike Jose": 60, "Jean Teather": 30},
       {"Jim Greer": 220, "Dave Bogaty": 150, "Alex Gudich": 100, "Ernie Hernandez": 60, "Pablo Jablonski": 30},
@@ -37,6 +40,7 @@ var seasons =
       {"Martin Welker": 30, "Brett Suwyn": 160, "David Selle": 60,"Tim Conkling": 230, "John Huang":100},
       {"Sam Wyman": 30, "Ralph Marx": 50, "Ian Chan": 80, "John Huang": 158, "David Selle": 162}
     ],
+    //  season 4
     [
       {"Nick Stuart": 40, "Jim Greer": 80, "Mike Shriver": 150, "Sam Wyman": 220, "John Huang": 330},
       {"Bill Sandberg": 40, "Tyler Breisch": 70, "Sam Wyman": 130, "Brian Jou": 200, "Curt Geen": 300},
@@ -47,6 +51,12 @@ var seasons =
       {"David Selle": 50, "Victor Dong": 90, "Sam Wyman": 140},
       {"Brett Suwyn": 50, "Mike Shriver": 70, "Sam Wyman": 100},
       {"Alex Gudich": 30, "Nick Stuart": 60, "Jeremy Linden": 90, "Sam Wyman": 140}
+    ],
+    //  season 5
+    [
+      {"Ralph Marx": 195, "Victor Dong": 140, "Nick Stuart": 95, "Gvir Aviv": 70, "Cristophe Thibault": 50, "Pablo Jablonski": 30},
+      {"Scott Waugaman": 210, "Alex Gudich": 130, "Sam Wyman": 80, "Pablo Jablonski": 60, "Ralph Marx": 40},
+      {"Daniel Dunbar": 215, "Eli Menaker": 155, "Mike Shriver": 110, "Jim Greer": 80, "Tony Jett": 50, "Sam Wyman": 30}
     ]
   ]
 ;
