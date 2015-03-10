@@ -56,7 +56,8 @@ var seasons =
     [
       {"Ralph Marx": 195, "Victor Dong": 140, "Nick Stuart": 95, "Gvir Aviv": 70, "Cristophe Thibault": 50, "Pablo Jablonski": 30},
       {"Scott Waugaman": 210, "Alex Gudich": 130, "Sam Wyman": 80, "Pablo Jablonski": 60, "Ralph Marx": 40},
-      {"Daniel Dunbar": 215, "Eli Menaker": 155, "Mike Shriver": 110, "Jim Greer": 80, "Tony Jett": 50, "Sam Wyman": 30}
+      {"Daniel Dunbar": 215, "Eli Menaker": 155, "Mike Shriver": 110, "Jim Greer": 80, "Tony Jett": 50, "Sam Wyman": 30},
+      {"Pablo Jablonski": 210, "Gvir Aviv": 150, "Nick Stuart": 90, "Eli Menaker": 60, "Mike Lotfy": 30}
     ]
   ]
 ;
