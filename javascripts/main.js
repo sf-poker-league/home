@@ -54,10 +54,12 @@ var seasons =
     ],
     //  season 5
     [
-      {"Ralph Marx": 195, "Victor Dong": 140, "Nick Stuart": 95, "Gvir Aviv": 70, "Cristophe Thibault": 50, "Pablo Jablonski": 30},
+      {"Ralph Marx": 195, "Victor Dong": 140, "Nick Stuart": 95, "Gvir Aviv": 70, "Christophe Thibault": 50, "Pablo Jablonski": 30},
       {"Scott Waugaman": 210, "Alex Gudich": 130, "Sam Wyman": 80, "Pablo Jablonski": 60, "Ralph Marx": 40},
       {"Daniel Dunbar": 215, "Eli Menaker": 155, "Mike Shriver": 110, "Jim Greer": 80, "Tony Jett": 50, "Sam Wyman": 30},
-      {"Pablo Jablonski": 210, "Gvir Aviv": 150, "Nick Stuart": 90, "Eli Menaker": 60, "Mike Lotfy": 30}
+      {"Pablo Jablonski": 210, "Gvir Aviv": 150, "Nick Stuart": 90, "Eli Menaker": 60, "Mike Lotfy": 30},
+      {"Dave Scott": 160, "Christophe Thibault": 120, "Nick Stuart": 80, "Ian Chan": 40},
+      {"Dave Scott": 165, "Mike Lotfy": 165, "David Selle": 100, "Nick Stuart": 50}
     ]
   ]
 ;
@@ -92,7 +94,7 @@ var affilliations = {
   "Calvin Chan": "Making Fun",
   "Charlie Ansanelli": "Treasure Island Flea",
   "Chris Burkhart": "Chute",
-  "Christophe Thibault": "Cockos, Inc",
+  "Christophe Thibault": "Blizzard, Inc",
   "Curt Geen": "Kongregate",
   "Dana Wagner": "Square",
   "Dave Bogaty": "Periscope",
