@@ -60,7 +60,8 @@ var seasons =
       {"Pablo Jablonski": 210, "Gvir Aviv": 150, "Nick Stuart": 90, "Eli Menaker": 60, "Mike Lotfy": 30},
       {"Dave Scott": 160, "Christophe Thibault": 120, "Nick Stuart": 80, "Ian Chan": 40},
       {"Dave Scott": 165, "Mike Lotfy": 165, "David Selle": 100, "Nick Stuart": 50},
-      {"Pablo Jablonski": 40, "Mike Lotfy": 80, "Tony Jett": 120, "Alex Gudich": 160}
+      {"Pablo Jablonski": 40, "Mike Lotfy": 80, "Tony Jett": 120, "Alex Gudich": 160},
+      {"Ralph Marx": 40, "Sam Wyman": 85, "Mike Shriver": 125, "John Huang": 165}
     ]
   ]
 ;
