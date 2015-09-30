@@ -64,6 +64,10 @@ var seasons =
       {"Ralph Marx": 40, "Sam Wyman": 85, "Mike Shriver": 125, "John Huang": 165},
       {"David Selle": 30, "Eli Menaker": 60, "Louis Campbell": 90, "Ralph Marx": 160, "Mike Lotfy":160},
       {"Dave Scott": 30, "Ian Chan": 50, "Pablo Jablonski": 104, "Victor Dong": 156, "Mike Shriver": 260}
+    ],
+    //  season 6
+    [
+      {"Ralph Marx": 210, "Nick Stuart": 160, "Jay Banfield": 110, "James Cho": 60}
     ]
   ]
 ;
